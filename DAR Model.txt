@@ -1,0 +1,32 @@
+""""
+DAR Model:
+provincia (not in SIPREC model): PK (id)  // What is that for?
+region: PK (id[SIPREC])
+territorio: PK (id[SIPREC]), FK (provincia_id, region_id)
+area (not in SIPREC model): PK (id), FK (territorio_id)
+central: PK (id[SIPREC], region_id), FK (area_id, region_id)
+zona: PK (id), FK (area_id)
+// there are some other important entities 
+grupo: PK (id)
+smsgrupo: PK (id)
+destinatario: PK (id)
+destinatario_area: PK (id), FK (destinatario_id, area_id)
+destinatario_grupo: PK (id), FK (destinatario_id, grupo_id)
+destinatario_smsgrupo: PK (id), FK (destinatario_id, smsgrupo_id)
+//
+asignacion: PK (id), FK (destinatario_id, zona_id, [central_id, region_id])
+despachado: PK (id), Index (telefono, folio, iddt, grupo)
+"""
+""""
+Webservice::Pendientes (data fields):
+folio: report identifier
+grupo: corresponds to `grupo`.`nombre`
+centro + telefono: reported service (E.g. 33 + 200531)
+idplantas: correspond to `central`.`id`
+idcentel: (we don't use it at all, so it is not in DAR model)
+iddt: correspond to `territorio`.`id` /* iddt comes in a two digits format, e.g. 04 */
+zona: corresponds to `zona`.`nombre`
+region: correspond to `region`.`id`
+
+Important: (folio, iddt, grupo) is the dispatch case identifier
+"""
