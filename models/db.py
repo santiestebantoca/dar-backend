@@ -18,6 +18,8 @@ db = DAL(myconf.get('db.dar_uri'), pool_size=myconf.get('db.pool_size'), check_r
          migrate_enabled=False  # disable migration for all tables
          )
 
+session.connect(request, response, db, masterapp=None)
+
 # by default give a view/generic.extension to all actions from localhost
 # none otherwise. a pattern can be 'controller/function.extension'
 response.generic_patterns = ['*'] if request.is_local else []
