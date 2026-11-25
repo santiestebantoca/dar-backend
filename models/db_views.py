@@ -109,6 +109,7 @@ tabla('wspendiente_central',
       Field('tiposerv'),
       Field('area_id'),
       Field('despachado', 'integer'),
+      Field('equipo'),
       primarykey=['folio', 'iddt'],
       migrate=False)
 

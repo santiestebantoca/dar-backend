@@ -39,7 +39,8 @@ def reportes_ra(db, auth, vars):
         db.wspendiente_central.zona,
         db.wspendiente_central.clave,
         db.wspendiente_central.tiposerv,
-        db.wspendiente_central.despachado
+        db.wspendiente_central.despachado,
+        db.wspendiente_central.equipo
     ]
     args = dict(distinct=True)  # , orderby=~db.wspendiente_central.folio)
     vars.limit and args.update(limitby=limitby(vars))
